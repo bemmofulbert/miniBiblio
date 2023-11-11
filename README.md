@@ -1,5 +1,5 @@
 # MiniBiblio
-## mini_biblio is an short project for test mysql, nodejs and anguarjs skills.
+## mini_biblio is a short project for test mysql, nodejs and anguarjs skills.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
