@@ -3,9 +3,9 @@
 
 # Config*
 
-##BD : /backend/bd_con.js
+## BD : /backend/bd_con.js
 
-##Api : /src/app/app.axios.ts
+## Api : /src/app/app.axios.ts
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
