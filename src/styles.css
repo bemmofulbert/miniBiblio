@@ -1,0 +1,80 @@
+@import '~bootstrap/dist/css/bootstrap.min.css'
+/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+	margin: 0;
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    height: 100vh;
+
+    padding: 0;
+	margin: 0;
+
+
+	animation-name: apparition;
+	animation-duration: 700ms;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+
+	display: flex;
+	flex-direction: column;
+}
+.centered {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.debug {
+border: 2px solid black;
+}
+input {
+	border: none;
+	outline: none;
+	text-overflow: ellipsis;
+}
+input:focus {
+	border: none;
+	outline: none;
+}
+/*{
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}*/
+
+@keyframes apparition {
+	0% {
+		opacity:0
+	}
+	100% {
+		opacity: 1
+	}
+}
+
+html, body { height: 100%; }
+/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+
+.ol-popup{
+	background-color: azure;
+	color: black;
+	font-size: 14px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 5px;
+}
+
+select {
+    box-shadow: inset 0 0 .1em rgb(220, 220, 220,0.9), 0 0 .2em gray;
+    height: 35px;
+    border-radius: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: white;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

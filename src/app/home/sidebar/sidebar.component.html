@@ -1,0 +1,13 @@
+<div class="root" >
+    <div class="top">
+        <app-sidebar-head (arrowClick)="onArrowClick($event)">
+        </app-sidebar-head>
+    </div>
+    <div class="center" *ngIf="!minimized"[@inOutAnimation]>
+        <app-sidebar-item *ngFor="let item of items" [item]="item" (switchTo)="onSwitchTo($event)">
+        </app-sidebar-item>
+    </div>
+    <div class="down" *ngIf="!minimized"[@inOutAnimation]>
+        <app-sidebar-foot></app-sidebar-foot>
+    </div>
+</div>
