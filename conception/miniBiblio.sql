@@ -18,7 +18,7 @@ CREATE TABLE Emprunt(
 	id int auto_increment not null PRIMARY KEY,
 	id_Utilisateur int REFERENCES Utilisateur(id) ON DELETE CASCADE,
 	id_Livre int REFERENCES Livre(id) ON DELETE CASCADE,
-	dateEmprunt DATE DEFAULT NOW()
+	dateEmprunt TIMESTAMP DEFAULT NOW()
 );
 
 

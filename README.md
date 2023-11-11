@@ -1,5 +1,5 @@
 # MiniBiblio
-## mini_biblio is a short project for test mysql, nodejs and anguarjs skills.
+## mini_biblio is a short project for test mysql, nodejs and angularjs skills to alshadow.
 
 # Config*
 

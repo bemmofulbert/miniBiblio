@@ -1,11 +1,18 @@
 var mysql = require('mysql');
 
-const info = {
+/*const info = {
     user : "root",
     password : "",
-    host : "localhost",//"192.168.43.10",
+    host : "localhost",
     database : "miniBiblio"
+}*/
+const info = {
+    user : "sql8661163",
+    password : "UYSxVDW42Y",
+    host : "sql8.freemysqlhosting.net",
+    database : "sql8661163"
 }
+
 
 var connection = mysql.createConnection(info);
 
