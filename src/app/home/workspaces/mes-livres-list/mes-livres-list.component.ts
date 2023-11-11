@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { UtilisateurService } from '../../../services/Utilisateur.service'
 import { LivreModel } from '../../../services/models/livre.model'
 import { LivreService } from '../../../services/Livre.service'
@@ -14,6 +14,7 @@ import {Subject} from 'rxjs';
   styleUrls: ['./mes-livres-list.component.css']
 })
 export class MesLivresListComponent {
+	@Output() modifClick: EventEmitter<any> = new EventEmitter();
 	dtOptions: DataTables.Settings = {
 			pagingType: 'full_numbers',
 			pageLength: 10,
@@ -42,11 +43,12 @@ export class MesLivresListComponent {
 			pageLength: 10,
 			lengthChange: true,
 			responsive: true,
+			retrieve: true,
 			language: {url: "assets/datatables.json"}
 		}
 	}
 	ngOnInit() {
-		this.init();
 		this.configure();
+		this.init();
 	}
 }

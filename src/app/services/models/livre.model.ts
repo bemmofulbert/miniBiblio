@@ -3,9 +3,9 @@ import { NumberSymbol } from "@angular/common"
 export class LivreModel {
     static tableName = "Livre"
     id: number
-    titre:string
-	auteur:string
-	genre:string
+    titre:string = ""
+	auteur:string = ""
+	genre:string = ""
 	id_Utilisateur:number
 
     static data_to_model(data){

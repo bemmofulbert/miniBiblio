@@ -72,13 +72,6 @@ body {
 		background-image: url("../../assets/bg/Road+to+Market+3.jpg");
 	}
 } 
-.centered {
-	display: flex;
-	align-items: center;
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-}
 .root {
     height: fit-content;
     vertical-align: middle;
@@ -143,25 +136,6 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
 
 }
 
-.lien {
-	text-align: center;
-	text-decoration-line: underline;
-	color: #047A9F;
-}
-.passOublier {
-	padding : 10px;
-	padding-left : 50%;
-	padding-top : 20px;
-	padding-bottom : 20px;
-}
-
-.passOublier > a:visited {
-text-decoration-line: underline;
-	color: #047A9F;
-}
-.eye img {
-	width: 20px
-}
 input[type="submit"] {
 	background: #0A2640;
 	border-radius: 240px;
@@ -187,14 +161,11 @@ input[value="Precedent"] {
 	margin-top: 3px;
 	width: 80%;
 }
-.creer {
-	padding-top : 20px;
-}
 
 .star,.alert,.err {
 	color: red
 }
 .alert{
-	font-size: 13px;
+	font-size: 11pt;
 	padding:0;
 }

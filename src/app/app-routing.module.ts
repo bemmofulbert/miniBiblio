@@ -8,7 +8,8 @@ import { HomeComponent } from './home/home.component'
 const routes: Routes =[
   {path: '', component: IdentiteComponent },
   {path: 'connexion', component: IdentiteComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'home/:sideSelected', component: HomeComponent}
 ] 
 
 @NgModule({

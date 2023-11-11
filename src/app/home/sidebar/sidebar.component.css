@@ -48,7 +48,7 @@
         position: -webkit-sticky; /* Safari */
         position: fixed;
         top:0px;
-        z-index: 99;
+        z-index: 98;
     }
     .top, .down {
         display: none;

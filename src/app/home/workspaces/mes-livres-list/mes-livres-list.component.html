@@ -17,7 +17,7 @@
                         <td>{{ livre.auteur }}</td>
                         <td>{{ livre.genre }}</td>
                         <td>
-                        	<button type="button" class="btn btn-warning centered">
+                        	<button type="button" class="btn btn-warning centered" (click)="modifClick.emit(livre)">
                         		<mat-icon>edit</mat-icon>
                         			Modifier
                         	</button>

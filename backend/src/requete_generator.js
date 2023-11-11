@@ -70,7 +70,7 @@ class QueryGenerator {
 		
 		let updates = [];
 		for(let i=0; i<nc ;i++){
-			upd = columns[i]+"=$"+(i+1);
+			upd = columns[i]+" = ?";
 			updates.push(upd);
 		}
 		query = query+updates.toString();
