@@ -13,7 +13,7 @@ export class IdentiteComponent {
   incorrect:Boolean = false;
   isconnecting:Boolean = false
   constructor(private router:Router, protected utilisateurService:UtilisateurService) {
-    this.utilisateur = JSON.parse(localStorage.getItem('utilisateur'));
+    this.utilisateur = JSON.parse(localStorage.getItem('utilisateur')) || (new UtilisateurModel());
   }
 
   gotoHome = (res)=>{

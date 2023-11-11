@@ -59,7 +59,7 @@ export class AxiosHandler {
             .then((res) => {
                 _callback(res)
             })
-            .catch((error) => {console.log(error)})
+            .catch((error) => {_catch(error);})
     }
 
     update(data:any,_callback=(res)=>{}) {

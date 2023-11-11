@@ -5,6 +5,7 @@ import { LivreService } from '../../../services/Livre.service'
 import { EmpruntModel } from '../../../services/models/emprunt.model'
 import { EmpruntService } from '../../../services/Emprunt.service'
 
+import {Subject} from 'rxjs';
 /* 
 * Ce composant affiche la liste des livres n'appartenant pas a l'utilisateur.
 */
@@ -16,13 +17,16 @@ import { EmpruntService } from '../../../services/Emprunt.service'
 })
 export class AutresLivresListComponent {
 	dtOptions: DataTables.Settings = {};
+	dtTrigger: Subject<any> = new Subject<any>();
 	emprunt:EmpruntModel
 	livres = []
-	init(){
+	init = ()=>{
 		this.emprunt.id_Utilisateur = UtilisateurService.UtilisateurActuel.id;
 		this.livreService.getAutresLivres(UtilisateurService.UtilisateurActuel,
 			(dat)=>{
 				this.livres = dat;
+
+				this.dtTrigger.next(null);
 			});
 	}
 	constructor(protected livreService:LivreService, protected empruntService:EmpruntService) {
@@ -33,14 +37,16 @@ export class AutresLivresListComponent {
 		this.emprunt.id_Livre = id;
 		this.empruntService.create(this.emprunt);
 	}
-
+	configure = ()=>{
+		this.dtOptions= {pagingType: 'full_numbers',
+			pageLength: 10,
+			lengthChange: true,
+			responsive: true,
+			language: {url: "assets/datatables.json"}
+		}
+	}
 	ngOnInit() {
 		this.init();
-		this.dtOptions = {
-			pagingType: 'full_numbers',
-			pageLength: 10,
-			autoWidth: true,
-			language: {url: "assets/datatables.json"}
-		};
+		this.configure();
 	}
 }

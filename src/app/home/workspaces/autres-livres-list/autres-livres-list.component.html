@@ -1,13 +1,13 @@
 <div class='root'>
 	<h1 style="color: brown; text-align: center;">Autres Livres</h1>
     <div class="container">
-            <table datatable [dtOptions]="dtOptions" id="example" class="table table-striped row-border">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped row-border">
             	<thead>
                     <tr>
                         <th>titre</th>
                         <th>auteur</th>
                         <th>genre</th>
-                        <th>numero proprietaire</th>
+                        <th>proprietaire</th>
                         <th>Action1</th>
                     </tr>
                 </thead>
@@ -16,7 +16,7 @@
                         <td>{{ livre.titre }}</td>
                         <td>{{ livre.auteur }}</td>
                         <td>{{ livre.genre }}</td>
-                        <td>{{ livre.idUtilisateur }}</td>
+                        <td>{{ livre.id_Utilisateur }}</td>
                         <td>
                         	<button type="button" class="btn btn-success centered" (click)="onEmprunt(livre.id)">
                         		<mat-icon>hand</mat-icon>

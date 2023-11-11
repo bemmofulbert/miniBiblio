@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UtilisateurService } from '../../../services/Utilisateur.service'
 import { LivreModel } from '../../../services/models/livre.model'
 import { LivreService } from '../../../services/Livre.service'
 import { EmpruntModel } from '../../../services/models/emprunt.model'
 import { EmpruntService } from '../../../services/Emprunt.service'
+
+import {Subject} from 'rxjs';
+
 
 @Component({
   selector: 'app-mes-emprunts-list',
@@ -11,26 +14,31 @@ import { EmpruntService } from '../../../services/Emprunt.service'
   styleUrls: ['./mes-emprunts-list.component.css']
 })
 export class MesEmpruntsListComponent {
-	dtOptions: DataTables.Settings = {};
+	dtOptions:DataTables.Settings = {}
+	dtTrigger: Subject<any> = new Subject<any>();
+
 	emprunt:EmpruntModel
 	livres = []
-	init(){
+	init = ()=>{
 		this.livreService.getEmprunts(UtilisateurService.UtilisateurActuel,
 			(dat)=>{
 				this.livres = dat;
+
+				this.dtTrigger.next(null);
 			});
 	}
 	constructor(protected livreService:LivreService, protected empruntService:EmpruntService) {}
-
-	// onRemettre = (id)=> {}
-
+	configure = ()=>{
+		this.dtOptions= {pagingType: 'full_numbers',
+			pageLength: 10,
+			lengthChange: true,
+			responsive: true,
+			language: {url: "assets/datatables.json"}
+		}
+	}
+	// onRemettre =(id)=> {}
 	ngOnInit() {
 		this.init();
-		this.dtOptions = {
-			pagingType: 'full_numbers',
-			pageLength: 10,
-			autoWidth: true,
-			language: {url: "assets/datatables.json"}
-		};
+		this.configure();
 	}
 }
