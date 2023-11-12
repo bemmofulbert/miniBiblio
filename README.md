@@ -8,7 +8,9 @@
 ## Api : /src/app/app.axios.ts
 
 # Display
+<img src="https://i.ibb.co/D8d0FTS/liv.png" alt="liv" border="0" />
 <img src="https://ibb.co/yY2HC7b" alt="large">
+<img src="https://i.ibb.co/dLBtK6g/liv2.png" alt="mobile" border="0" />
 <img src="https://ibb.co/RB2NHPy" alt="mobile">
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
