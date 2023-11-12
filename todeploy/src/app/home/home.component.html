@@ -1,0 +1,16 @@
+<div class="root">
+        <app-ajout-livre-modal (addFinished)="onAddFinished($event)" [show]="isAdding"></app-ajout-livre-modal>
+        <app-modif-livre-modal (modifFinished)="onModifFinished($event)" #modifLivreModal></app-modif-livre-modal>
+
+        <div class="top"><app-header></app-header></div>
+        <div class="space">
+                <div><app-sidebar (switchTo)="onSideBar_change($event)"></app-sidebar></div>
+                <div class="workspace centered">
+                        <!-- <app-art-dashboard-workspace-projet></app-art-dashboard-workspace-projet> -->
+                        <app-mes-livres-list *ngIf="sideAct=='Mes Livres'" (modifClick)="modifLivreModal.exec($event)" #mesLivresList></app-mes-livres-list>
+                        <app-autres-livres-list *ngIf="sideAct=='Autres Livres'"></app-autres-livres-list>
+                        <app-mes-emprunts-list *ngIf="sideAct=='Mes Emprunts'"></app-mes-emprunts-list>
+                </div>  
+        </div>
+        <div class="add centered" *ngIf="!isAdding" (click)="isAdding=true"><mat-icon>add</mat-icon></div>
+</div>

@@ -119,6 +119,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/mini_biblio_app",
+            "netlifyToken": "lcIOyHgWKwZBroFSTtNIc5r2-tvNMarzmiVx3ZRewQg",
+            "siteId": "5f6c1f21-9277-401a-9006-be17fd79aa3e"
+          }
         }
       }
     }

@@ -1,0 +1,19 @@
+<div class="root" style="background-color: rgb(0,48,81);" *ngIf="item.selected; else alternatinativeRoot" [title]="item.title">
+    <div class="icon">
+        <div><mat-icon>{{ item.icon }}</mat-icon></div>
+    </div>
+    <div class="title">
+        <div>{{ item.title }}</div>
+    </div>
+</div>
+
+<ng-template #alternatinativeRoot>
+    <div class="root" (click)="onClick()" [title]="item.title">
+        <div class="icon">
+            <div><mat-icon>{{ item.icon }}</mat-icon></div>
+        </div>
+        <div class="title">
+            <div>{{ item.title }}</div>
+        </div>
+    </div>
+</ng-template>

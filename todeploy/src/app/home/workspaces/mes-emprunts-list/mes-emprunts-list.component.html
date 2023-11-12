@@ -1,0 +1,30 @@
+<div class='root'>
+	<h1 style="color: brown; text-align: center;">Mes Emprunts</h1>
+    <div class="container">
+            <table datatable #table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped row-border">
+            	<thead>
+                    <tr>
+                        <th>titre</th>
+                        <th>auteur</th>
+                        <th>genre</th>
+                        <th>proprietaire</th>
+                        <!-- <th>Action1</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+	                <tr *ngFor="let livre of livres" >
+                        <td>{{ livre.titre }}</td>
+                        <td>{{ livre.auteur }}</td>
+                        <td>{{ livre.genre }}</td>
+                        <td>{{ livre.id_Utilisateur }}</td>
+                        <!-- <td>
+                        	<button type="button" class="btn btn-success centered" (click)="onEmprunt(livre.id)">
+                        		<mat-icon>hand</mat-icon>
+                        			Rendre
+                        	</button>
+                        </td> -->
+	                </tr>  
+                </tbody>
+            </table>
+    </div>   
+</div>
