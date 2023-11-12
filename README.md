@@ -13,6 +13,12 @@
 <img src="https://i.ibb.co/dLBtK6g/liv2.png" alt="mobile" border="0" />
 <img src="https://ibb.co/RB2NHPy" alt="mobile">
 
+# Deploy
+
+<a href="https://minibiblio.netlify.app" border=3 >click here to see miniBiblio app</a>
+
+# --------------------------
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
 ## Development server
