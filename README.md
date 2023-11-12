@@ -7,6 +7,10 @@
 
 ## Api : /src/app/app.axios.ts
 
+# Display
+![Alt text](https://ibb.co/yY2HC7b)
+![Alt text](https://ibb.co/RB2NHPy)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
 ## Development server
