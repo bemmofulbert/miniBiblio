@@ -7,6 +7,9 @@ import { EmpruntService } from '../../../services/Emprunt.service'
 
 import {Subject} from 'rxjs';
 
+/* 
+* Ce composant affiche la liste des livres empruntes par l'utilisateur.
+*/
 
 @Component({
   selector: 'app-mes-emprunts-list',
@@ -14,7 +17,7 @@ import {Subject} from 'rxjs';
   styleUrls: ['./mes-emprunts-list.component.css']
 })
 export class MesEmpruntsListComponent {
-	dtOptions:DataTables.Settings = {}
+	dtOptions: any = {}
 	dtTrigger: Subject<any> = new Subject<any>();
 
 	emprunt:EmpruntModel

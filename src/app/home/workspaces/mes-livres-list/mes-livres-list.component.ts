@@ -4,6 +4,7 @@ import { LivreModel } from '../../../services/models/livre.model'
 import { LivreService } from '../../../services/Livre.service'
 
 import {Subject} from 'rxjs';
+
 /* 
 * Ce composant affiche la liste des livres appartenant a l'utilisateur.
 */
@@ -15,7 +16,7 @@ import {Subject} from 'rxjs';
 })
 export class MesLivresListComponent {
 	@Output() modifClick: EventEmitter<any> = new EventEmitter();
-	dtOptions: DataTables.Settings = {
+	dtOptions: any = {
 			pagingType: 'full_numbers',
 			pageLength: 10,
 			lengthChange: true,

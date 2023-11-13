@@ -16,7 +16,7 @@ import {Subject} from 'rxjs';
   styleUrls: ['./autres-livres-list.component.css']
 })
 export class AutresLivresListComponent {
-	dtOptions: DataTables.Settings = {};
+	dtOptions: any = {};
 	dtTrigger: Subject<any> = new Subject<any>();
 	emprunt:EmpruntModel
 	livres = []
