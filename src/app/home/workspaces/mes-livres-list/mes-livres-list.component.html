@@ -1,7 +1,7 @@
 <div class='root'>
 	<h1 style="color: brown; text-align: center;">Mes Livres</h1>
     <div class="container">
-            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped row-border">
+            <table datatable id="tableData" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="example" class="table table-striped row-border">
             	<thead>
                     <tr>
                         <th>titre</th>
@@ -11,7 +11,7 @@
                         <th>action2</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="livres.length > 0">
 	                <tr *ngFor="let livre of livres" >
                         <td>{{ livre.titre }}</td>
                         <td>{{ livre.auteur }}</td>
