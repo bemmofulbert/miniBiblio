@@ -15,13 +15,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": [
-              "pbf",
-              "rbush",
-              "ol-popup"
-            ],
             "outputPath": "dist/mini_biblio_app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -87,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Mini_biblio:build:production"
+              "buildTarget": "Mini_biblio:build:production"
             },
             "development": {
-              "browserTarget": "Mini_biblio:build:development"
+              "buildTarget": "Mini_biblio:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Mini_biblio:build"
+            "buildTarget": "Mini_biblio:build"
           }
         },
         "test": {
