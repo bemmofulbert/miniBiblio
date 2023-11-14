@@ -20,6 +20,9 @@ export class AutresLivresListComponent {
 	dtTrigger: Subject<any> = new Subject<any>();
 	emprunt:EmpruntModel
 	livres = []
+	tableReady = false
+	message = "Chargement..."
+
 	init = ()=>{
 		this.emprunt.id_Utilisateur = UtilisateurService.UtilisateurActuel.id;
 		this.livreService.getAutresLivres(UtilisateurService.UtilisateurActuel,
@@ -27,7 +30,9 @@ export class AutresLivresListComponent {
 				this.livres = dat;
 
 				this.dtTrigger.next(null);
-			});
+				this.tableReady = true;
+			},
+			(err)=> {this.message = "😵 un probleme est survenu"});
 	}
 	constructor(protected livreService:LivreService, protected empruntService:EmpruntService) {
 		this.emprunt = new EmpruntModel();

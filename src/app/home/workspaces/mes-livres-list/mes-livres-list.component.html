@@ -31,5 +31,6 @@
 	                </tr>  
                 </tbody>
             </table>
+            <div class="centered"*ngIf="livres.length <= 0 && !tableReady">{{ message }}</div>
     </div>   
 </div>

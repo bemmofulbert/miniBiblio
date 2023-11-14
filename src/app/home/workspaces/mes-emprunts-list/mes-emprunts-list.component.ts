@@ -22,13 +22,18 @@ export class MesEmpruntsListComponent {
 
 	emprunt:EmpruntModel
 	livres = []
+	tableReady = false
+	message = "Chargement..."
+
 	init = ()=>{
 		this.livreService.getEmprunts(UtilisateurService.UtilisateurActuel,
 			(dat)=>{
 				this.livres = dat;
 
 				this.dtTrigger.next(null);
-			});
+				this.tableReady = true;
+			},
+			(err)=> {this.message = "😵 un probleme est survenu";});
 	}
 	constructor(protected livreService:LivreService, protected empruntService:EmpruntService) {}
 	configure = ()=>{

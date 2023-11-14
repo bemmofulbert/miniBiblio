@@ -24,13 +24,19 @@ export class MesLivresListComponent {
 		};
 	dtTrigger: Subject<any> = new Subject<any>();
 	livres = []
+	tableReady = false
+	message = "Chargement..."
+
+
 	init(){
 		this.livreService.getMesLivres(UtilisateurService.UtilisateurActuel,
 			(dat)=>{
 				this.livres = dat;
 
 				this.dtTrigger.next(null);
-			});
+				this.tableReady = true;
+			},
+			(err)=> {this.message = "😵 un probleme est survenu";});
 	}
 	constructor(protected livreService:LivreService) {}
 

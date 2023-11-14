@@ -13,27 +13,27 @@ export class LivreService extends AxiosHandler{
     super(LivreModel.tableName)
   }
   
-  getMesLivres(utilisateur:UtilisateurModel, _callback=(data=[])=>{}){
+  getMesLivres(utilisateur:UtilisateurModel, _callback=(data=[])=>{}, _catch=(error)=>{}){
         this.http.get(`/${this.tableName}/Utilisateur/${utilisateur["id"]}/mesLivres`)
             .then( res => {
                 _callback(res.data)
             }) 
-            .catch( error => {console.log(error)})
+            .catch( error => {console.log(error);_catch(error);})
    }
    
-   getAutresLivres(utilisateur:UtilisateurModel, _callback=(data=[])=>{}){
+   getAutresLivres(utilisateur:UtilisateurModel, _callback=(data=[])=>{}, _catch=(error)=>{}){
         this.http.get(`/${this.tableName}/Utilisateur/${utilisateur["id"]}/autreLivres`)
             .then( res => {
                 _callback(res.data)
             }) 
-            .catch( error => {console.log(error)})
+            .catch( error => {console.log(error); _catch(error);})
    }
    
-   getEmprunts(utilisateur:UtilisateurModel, _callback=(data=[])=>{}){
+   getEmprunts(utilisateur:UtilisateurModel, _callback=(data=[])=>{}, _catch=(error)=>{}){
         this.http.get(`/${this.tableName}/Utilisateur/${utilisateur["id"]}/emprunt`)
             .then( res => {
                 _callback(res.data)
             }) 
-            .catch( error => {console.log(error)})
+            .catch( error => {console.log(error); _catch(error);})
    }
 }
