@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
+    "startAll": "npm start && sudo /opt/lampp/lampp startmysql; cd backend; npm start && cd ..",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

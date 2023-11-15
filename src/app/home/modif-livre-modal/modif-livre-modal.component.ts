@@ -18,12 +18,14 @@ export class ModifLivreModalComponent {
 	ngOnInit(){
 		//this.livre.id_Utilisateur = UtilisateurService.UtilisateurActuel.id;
 	}
-	hide(){this.show = false;}
+	
 	onRetour(){
 		this.hide();
 		this.modifFinished.emit(false);
 	}
 
+	hide(){this.show = false;}
+	
 	exec(livre:any) {
 		this.livre= LivreModel.data_to_model(livre);
 		this.show = true;

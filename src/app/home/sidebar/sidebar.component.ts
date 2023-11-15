@@ -37,7 +37,8 @@ export class SidebarComponent {
 	items = [
 		new SidebarItemModel('person_pin', "Mes Livres", true),
 		new SidebarItemModel('bar_chart',"Autres Livres"),
-		new SidebarItemModel('work',"Mes Emprunts")
+		new SidebarItemModel('work',"Mes Emprunts"),
+    new SidebarItemModel('logout',"Log out")
    ]
   minimized:Boolean = false
 

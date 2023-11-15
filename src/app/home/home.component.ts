@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomeComponent {
   isAdding = false;
   isModifying = false;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private router:Router, private activatedRoute: ActivatedRoute) {
     let sideSelected = activatedRoute.snapshot.params['sideSelected']
     if(sideSelected) {
       this.sideAct = sideSelected
@@ -22,6 +22,7 @@ export class HomeComponent {
   }
 
   onSideBar_change(value:string) {
+    if(value === "Log out") this.router.navigate(['']);
     this.sideAct = value
   }
   onAddFinished($event) {

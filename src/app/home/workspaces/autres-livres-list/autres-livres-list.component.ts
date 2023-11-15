@@ -28,9 +28,11 @@ export class AutresLivresListComponent {
 		this.livreService.getAutresLivres(UtilisateurService.UtilisateurActuel,
 			(dat)=>{
 				this.livres = dat;
-
-				this.dtTrigger.next(null);
 				this.tableReady = true;
+
+				try{
+					this.dtTrigger.next(null);
+				}catch(e){}
 			},
 			(err)=> {this.message = "😵 un probleme est survenu"});
 	}
@@ -44,7 +46,7 @@ export class AutresLivresListComponent {
 	}
 	configure = ()=>{
 		this.dtOptions= {pagingType: 'full_numbers',
-			pageLength: 10,
+			pageLength: 5,
 			lengthChange: true,
 			responsive: true,
 			language: {url: "assets/datatables.json"}
