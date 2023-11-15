@@ -36,7 +36,6 @@
     }
     .root {
         flex-wrap: wrap;
-        height: fit-content;
         max-height: 100px;
         padding: 5px;
         width: 100%;
