@@ -28,6 +28,7 @@
   }
   .space div {
     width: 100%;
+    height: max-content;
   }
   .workspace {
     padding-left: 0;

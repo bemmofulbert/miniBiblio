@@ -30,7 +30,7 @@
         width: 100%;
     }
   .root {
-        height: fit-content;
+        height: max-content;
         min-height: 10px;
         justify-content: center;
         width:100%;
@@ -39,7 +39,6 @@
     }
     .center {
         display: flex;
-        height: fit-content;
         align-content: stretch;
         align-items: stretch;
         flex-direction: row;
@@ -49,6 +48,7 @@
         position: fixed;
         top:0px;
         z-index: 98;
+        height: max-content;
     }
     .top, .down {
         display: none;
