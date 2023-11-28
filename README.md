@@ -1,5 +1,5 @@
 # MiniBiblio
-## mini_biblio is a short project for prove my mysql, nodejs and angularjs skills to alshadow.
+## mini_biblio is a tiny project using mysql, nodejs and angularjs.
 
 # Config*
 
@@ -12,10 +12,6 @@
 <img src="https://ibb.co/yY2HC7b" alt="large">
 <img src="https://i.ibb.co/dLBtK6g/liv2.png" alt="mobile" border="0" />
 <img src="https://ibb.co/RB2NHPy" alt="mobile">
-
-# Deploy
-
-<a href="https://minibiblio.netlify.app" border=3 >click here to see miniBiblio app</a>
 
 # --------------------------
 
