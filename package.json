@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
-    "startAll": "npm start && sudo /opt/lampp/lampp startmysql; cd backend; npm start && cd ..",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check",
+    "startAll": "npm start & ./launch_backend.sh",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -27,6 +27,7 @@
     "@angular/platform-browser": "^17.0.2",
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
+    "@ngtools/webpack": "^6.0.0",
     "@popperjs/core": "^2.11.8",
     "angular-datatables": "^16.0.0",
     "angular-localstorage": "^1.1.5",

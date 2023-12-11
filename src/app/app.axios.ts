@@ -4,7 +4,7 @@ export const urlApi = 'https://api-minibiblio.onrender.com' //'http://localhost:
 
 const http = axios.create({
     baseURL : urlApi,
-    timeout : 30000,
+    timeout : 45000,
     headers: {'Authorization': '*'}
 })
 
