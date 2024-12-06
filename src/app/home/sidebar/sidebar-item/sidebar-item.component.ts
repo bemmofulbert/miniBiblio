@@ -6,14 +6,15 @@ import { SidebarItemModel } from './sidebar-item.model';
 @Component({
   selector: 'app-sidebar-item',
   templateUrl: './sidebar-item.component.html',
-  styleUrls: ['./sidebar-item.component.css']
+  styleUrls: ['./sidebar-item.component.css'],
+  standalone: false,
 })
-@Injectable({providedIn: SidebarComponent})
+@Injectable({ providedIn: SidebarComponent })
 export class SidebarItemComponent {
-  @Input() public item:SidebarItemModel = new SidebarItemModel();
-  @Output() switchTo:EventEmitter<string> = new EventEmitter();
+  @Input() public item: SidebarItemModel = new SidebarItemModel();
+  @Output() switchTo: EventEmitter<string> = new EventEmitter();
 
-  onClick(){
+  onClick() {
     this.switchTo.emit(this.item.title);
   }
 }

@@ -13,47 +13,56 @@ import {Subject} from 'rxjs';
 @Component({
   selector: 'app-autres-livres-list',
   templateUrl: './autres-livres-list.component.html',
-  styleUrls: ['./autres-livres-list.component.css']
+  styleUrls: ['./autres-livres-list.component.css'],
+  standalone: false,
 })
 export class AutresLivresListComponent {
-	dtOptions: any = {};
-	dtTrigger: Subject<any> = new Subject<any>();
-	emprunt:EmpruntModel
-	livres = []
-	tableReady = false
-	message = "Chargement..."
+  dtOptions: any = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+  emprunt: EmpruntModel;
+  livres: any[] | undefined = [];
+  tableReady = false;
+  message = 'Chargement...';
 
-	init = ()=>{
-		this.emprunt.id_Utilisateur = UtilisateurService.UtilisateurActuel.id;
-		this.livreService.getAutresLivres(UtilisateurService.UtilisateurActuel,
-			(dat)=>{
-				this.livres = dat;
-				this.tableReady = true;
+  init = () => {
+    this.emprunt.id_Utilisateur = UtilisateurService.UtilisateurActuel.id;
+    this.livreService.getAutresLivres(
+      UtilisateurService.UtilisateurActuel,
+      (dat) => {
+        this.livres = dat;
+        this.tableReady = true;
 
-				try{
-					this.dtTrigger.next(null);
-				}catch(e){}
-			},
-			(err)=> {this.message = "😵 un probleme est survenu"});
-	}
-	constructor(protected livreService:LivreService, protected empruntService:EmpruntService) {
-		this.emprunt = new EmpruntModel();
-	}
+        try {
+          this.dtTrigger.next(null);
+        } catch (e) {}
+      },
+      (err) => {
+        this.message = '😵 un probleme est survenu';
+      }
+    );
+  };
+  constructor(
+    protected livreService: LivreService,
+    protected empruntService: EmpruntService
+  ) {
+    this.emprunt = new EmpruntModel();
+  }
 
-	onEmprunt = (id)=> {
-		this.emprunt.id_Livre = id;
-		this.empruntService.create(this.emprunt);
-	}
-	configure = ()=>{
-		this.dtOptions= {pagingType: 'full_numbers',
-			pageLength: 5,
-			lengthChange: true,
-			responsive: true,
-			language: {url: "assets/datatables.json"}
-		}
-	}
-	ngOnInit() {
-		this.init();
-		this.configure();
-	}
+  onEmprunt = (id: number) => {
+    this.emprunt.id_Livre = id;
+    this.empruntService.create(this.emprunt);
+  };
+  configure = () => {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      lengthChange: true,
+      responsive: true,
+      language: { url: 'assets/datatables.json' },
+    };
+  };
+  ngOnInit() {
+    this.init();
+    this.configure();
+  }
 }

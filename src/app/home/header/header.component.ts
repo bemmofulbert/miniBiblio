@@ -12,19 +12,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  standalone: false,
 })
 export class HeaderComponent {
-	constructor(private router:Router, protected utilisateurService:UtilisateurService) {
-		
-		if (UtilisateurService.UtilisateurActuel == undefined || !Number(UtilisateurService.UtilisateurActuel.id)) {
-			UtilisateurService.UtilisateurActuel = JSON.parse(localStorage.getItem('utilisateur'));
-    		if(UtilisateurService.UtilisateurActuel == undefined || UtilisateurService.UtilisateurActuel == null) 
-				this.gotoConnexion();
-		}
-	}
-	gotoConnexion = ()=>{
-          this.router.navigate(['connexion']);
-        }
-
+  constructor(
+    private router: Router,
+    protected utilisateurService: UtilisateurService
+  ) {
+    if (
+      UtilisateurService.UtilisateurActuel == undefined ||
+      !Number(UtilisateurService.UtilisateurActuel.id)
+    ) {
+      UtilisateurService.UtilisateurActuel = JSON.parse(
+        localStorage.getItem('utilisateur') || ''
+      );
+      if (
+        UtilisateurService.UtilisateurActuel == undefined ||
+        UtilisateurService.UtilisateurActuel == null
+      )
+        this.gotoConnexion();
+    }
+  }
+  gotoConnexion = () => {
+    this.router.navigate(['connexion']);
+  };
 }

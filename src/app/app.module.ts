@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 
-import { IdentiteComponent } from 'src/app/identite/identite.component';
+import { IdentiteComponent } from './identite/identite.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
@@ -22,8 +22,8 @@ import { MesEmpruntsListComponent } from './home/workspaces/mes-emprunts-list/me
 import { AutresLivresListComponent } from './home/workspaces/autres-livres-list/autres-livres-list.component';
 import { AjoutLivreModalComponent } from './home/ajout-livre-modal/ajout-livre-modal.component';
 import { ModifLivreModalComponent } from './home/modif-livre-modal/modif-livre-modal.component';
-
-
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { ModifLivreModalComponent } from './home/modif-livre-modal/modif-livre-m
     MesEmpruntsListComponent,
     AutresLivresListComponent,
     AjoutLivreModalComponent,
-    ModifLivreModalComponent
+    ModifLivreModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +49,11 @@ import { ModifLivreModalComponent } from './home/modif-livre-modal/modif-livre-m
     MatIconModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-    DataTablesModule
+    DataTablesModule,
+    CommonModule,
+    RouterOutlet,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

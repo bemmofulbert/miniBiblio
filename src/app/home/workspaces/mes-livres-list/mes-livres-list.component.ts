@@ -12,47 +12,52 @@ import {Subject} from 'rxjs';
 @Component({
   selector: 'app-mes-livres-list',
   templateUrl: './mes-livres-list.component.html',
-  styleUrls: ['./mes-livres-list.component.css']
+  styleUrls: ['./mes-livres-list.component.css'],
+  standalone: false,
 })
 export class MesLivresListComponent {
-	@Output() modifClick: EventEmitter<any> = new EventEmitter();
-	dtOptions: any = {}
-	dtTrigger: Subject<any> = new Subject<any>();
-	livres = []
-	tableReady = false
-	message = "Chargement..."
+  @Output() modifClick: EventEmitter<any> = new EventEmitter();
+  dtOptions: any = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+  livres: any[] | undefined = [];
+  tableReady = false;
+  message = 'Chargement...';
 
+  init() {
+    this.livreService.getMesLivres(
+      UtilisateurService.UtilisateurActuel,
+      (dat) => {
+        this.livres = dat;
 
-	init(){
-		this.livreService.getMesLivres(UtilisateurService.UtilisateurActuel,
-			(dat)=>{
-				this.livres = dat;
+        this.tableReady = true;
+        try {
+          this.dtTrigger.next(null);
+        } catch (e) {}
+      },
+      (err) => {
+        this.message = '😵 un probleme est survenu';
+      }
+    );
+  }
+  constructor(protected livreService: LivreService) {}
 
-				this.tableReady = true;
-				try{
-					this.dtTrigger.next(null);
-				}catch(e){}				
-			},
-			(err)=> {this.message = "😵 un probleme est survenu";});
-	}
-	constructor(protected livreService:LivreService) {}
-
-	onDelete = (id)=> {
-		this.livreService.delete(id, (res)=>{
-			this.init();
-		});
-	}
-	configure = ()=>{
-		this.dtOptions= {pagingType: 'full_numbers',
-			pageLength: 5,
-			lengthChange: true,
-			responsive: true,
-			retrieve: true,
-			language: {url: "assets/datatables.json"}
-		}
-	}
-	ngOnInit() {
-		this.configure();
-		this.init();
-	}
+  onDelete = (id: any) => {
+    this.livreService.delete(id, (res) => {
+      this.init();
+    });
+  };
+  configure = () => {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      lengthChange: true,
+      responsive: true,
+      retrieve: true,
+      language: { url: 'assets/datatables.json' },
+    };
+  };
+  ngOnInit() {
+    this.configure();
+    this.init();
+  }
 }

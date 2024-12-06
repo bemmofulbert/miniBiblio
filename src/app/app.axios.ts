@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const urlApi = 'https://api-minibiblio.onrender.com' //'http://localhost:3000' //
+export const urlApi = 'https://minibiblio.onrender.com/' //'http://localhost:3000' //
 
 const http = axios.create({
     baseURL : urlApi,

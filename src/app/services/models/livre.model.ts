@@ -2,13 +2,13 @@ import { NumberSymbol } from "@angular/common"
 
 export class LivreModel {
     static tableName = "Livre"
-    id: number
+    id: number | undefined
     titre:string = ""
 	auteur:string = ""
 	genre:string = ""
-	id_Utilisateur:number
+	id_Utilisateur:number | undefined
 
-    static data_to_model(data){
+    static data_to_model(data: any){
       let model = new LivreModel()
       
       if (data["id"] != undefined) model.id = data["id"]

@@ -14,41 +14,50 @@ import {Subject} from 'rxjs';
 @Component({
   selector: 'app-mes-emprunts-list',
   templateUrl: './mes-emprunts-list.component.html',
-  styleUrls: ['./mes-emprunts-list.component.css']
+  styleUrls: ['./mes-emprunts-list.component.css'],
+  standalone: false,
 })
 export class MesEmpruntsListComponent {
-	dtOptions: any = {}
-	dtTrigger: Subject<any> = new Subject<any>();
+  dtOptions: any = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
-	emprunt:EmpruntModel
-	livres = []
-	tableReady = false
-	message = "Chargement..."
+  emprunt: EmpruntModel | undefined;
+  livres: any[] | undefined = [];
+  tableReady = false;
+  message = 'Chargement...';
 
-	init = ()=>{
-		this.livreService.getEmprunts(UtilisateurService.UtilisateurActuel,
-			(dat)=>{
-				this.livres = dat;
+  init = () => {
+    this.livreService.getEmprunts(
+      UtilisateurService.UtilisateurActuel,
+      (dat) => {
+        this.livres = dat;
 
-				this.tableReady = true;
-				try{
-					this.dtTrigger.next(null);
-				}catch(e){}
-			},
-			(err)=> {this.message = "😵 un probleme est survenu";});
-	}
-	constructor(protected livreService:LivreService, protected empruntService:EmpruntService) {}
-	configure = ()=>{
-		this.dtOptions= {pagingType: 'full_numbers',
-			pageLength: 5,
-			lengthChange: true,
-			responsive: true,
-			language: {url: "assets/datatables.json"}
-		}
-	}
-	// onRemettre =(id)=> {}
-	ngOnInit() {
-		this.init();
-		this.configure();
-	}
+        this.tableReady = true;
+        try {
+          this.dtTrigger.next(null);
+        } catch (e) {}
+      },
+      (err) => {
+        this.message = '😵 un probleme est survenu';
+      }
+    );
+  };
+  constructor(
+    protected livreService: LivreService,
+    protected empruntService: EmpruntService
+  ) {}
+  configure = () => {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      lengthChange: true,
+      responsive: true,
+      language: { url: 'assets/datatables.json' },
+    };
+  };
+  // onRemettre =(id)=> {}
+  ngOnInit() {
+    this.init();
+    this.configure();
+  }
 }

@@ -7,7 +7,7 @@ export class AxiosHandler {
     constructor(tableName:string) {
         this.tableName = tableName
     }
-    getAll(_callback=(data)=>{}) {
+    getAll(_callback=(data:any)=>{}) {
         http.get("/"+this.tableName)
             .then((res)=>{
                 _callback(res.data)
@@ -16,7 +16,7 @@ export class AxiosHandler {
                 console.log(error)
             }) 
     }
-    getOne(id:number,_callback=(data)=>{}){
+    getOne(id:number,_callback=(data: any)=>{}){
         http.get("/"+this.tableName+"/"+id,)
             .then((res)=>{
                 _callback(res.data)
@@ -33,7 +33,7 @@ export class AxiosHandler {
         
     }
 
-    getOneWith(assoc,_callback=(data)=>{}){
+    getOneWith(assoc: any,_callback=(data: any)=>{}){
         http.post("/"+this.tableName+"_with",assoc)
             .then((res)=>{
                 console.log(res.data)
@@ -44,7 +44,7 @@ export class AxiosHandler {
             })
     }
 
-    getCount(_callback=(data=>{})){
+    getCount(_callback=((data: any)=>{})){
         http.get("/count/"+this.tableName)
             .then((res)=>{
                 _callback(res.data["count"])
@@ -54,7 +54,7 @@ export class AxiosHandler {
             })
     }
 
-    create(data:any,_callback=(res)=>{}, _catch=(res)=>{}) {
+    create(data:any,_callback=(res: any)=>{}, _catch=(res: any)=>{}) {
         http.put("/"+this.tableName,data)
             .then((res) => {
                 _callback(res)
@@ -62,7 +62,7 @@ export class AxiosHandler {
             .catch((error) => {_catch(error);})
     }
 
-    update(data:any,_callback=(res)=>{}) {
+    update(data:any,_callback=(res: any)=>{}) {
         http.put("/"+this.tableName+"/"+(data.id | data.idart),data)
             .then((res)=>{
                 _callback(res)
@@ -70,7 +70,7 @@ export class AxiosHandler {
             .catch((error) => {console.log(error)})
     }
 
-    delete(id:number,_callback=(res)=>{}) {
+    delete(id:number,_callback=(res: any)=>{}) {
         http.delete("/"+this.tableName+"/"+id)
             .then((res)=> {
                 _callback(res)
@@ -79,14 +79,14 @@ export class AxiosHandler {
     }
 
     tabs_to_assoc(keys=[], datas=[]){
-        const assoc = []
+        const assoc: never[] = []
         for(let i=0, c=keys.length; i<c ; i++) {
             assoc[keys[i]] = datas[i]  
         }
         return assoc
     }
 
-    search(_callback=(res)=>{}, columns, keys, start=-1, limit=-1) {
+    search(_callback=(res: any)=>{}, columns: any, keys: any, start=-1, limit=-1) {
         let data = {
             columns,
             keys,
