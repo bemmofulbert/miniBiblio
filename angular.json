@@ -26,7 +26,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/_redirects"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
@@ -96,6 +97,14 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/lt-test",
+            "netlifyToken": "nfp_RLmdhdk74GWGBoTGddCfhyu8G5K6Bhmh12ff",
+            "siteId": "217deddf-ce92-413f-a993-bdf5ffc0add5"
           }
         }
       }
