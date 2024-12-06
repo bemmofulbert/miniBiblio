@@ -20,56 +20,56 @@ body {
 }
 @keyframes prestations {
 	0% {
-		background-image: url("../../assets/bg/Road+to+Market+3.jpg");
+		background-image: url("../../../public/../public/assets/bg/Road+to+Market+3.jpg");
 		opacity: 1;
 	}
 	2.62%{
 		opacity: 1;
-		background-image: url("../../assets/bg/Road+to+Market+3.jpg");
+		background-image: url("../../../public/../public/assets/bg/Road+to+Market+3.jpg");
 	}
 	16.62%{
 		opacity: 0;
-		background-image: url("../../assets/bg/Road+to+Market+3.jpg");
+		background-image: url("../../../public/../public/assets/bg/Road+to+Market+3.jpg");
 	}
 	17.62%{
 		opacity: 0;
-		background-image: url("../../assets/bg/alamain.jpg");
+		background-image: url("../../../public/../public/assets/bg/alamain.jpg");
 	}
 	33.33% {
 		opacity: 1;
-		background-image: url("../../assets/bg/alamain.jpg");
+		background-image: url("../../../public/assets/bg/alamain.jpg");
 	}
 	35.95% {
 		opacity: 1;
-		background-image: url("../../assets/bg/alamain.jpg");
+		background-image: url("../../../public/assets/bg/alamain.jpg");
 	}
 	49.95% {
 		opacity: 0;
-		background-image: url("../../assets/bg/alamain.jpg");
+		background-image: url("../../../public/assets/bg/alamain.jpg");
 	}
 	50.95% {
 		opacity: 0;
-		background-image: url("../../assets/bg/welder.jpg");
+		background-image: url("../../../public/assets/bg/welder.jpg");
 	}
 	64.66% {
 		opacity: 1;
-		background-image: url("../../assets/bg/welder.jpg");
+		background-image: url("../../../public/assets/bg/welder.jpg");
 	}
 	66.66% {
 		opacity: 1;
-		background-image: url("../../assets/bg/welder.jpg");
+		background-image: url("../../../public/assets/bg/welder.jpg");
 	}
 	83.2% {
 		opacity: 0;
-		background-image: url("../../assets/bg/welder.jpg");
+		background-image: url("../../../public/assets/bg/welder.jpg");
 	}
 	85.2% {
 		opacity: 0;
-		background-image: url("../../assets/bg/Road+to+Market+3.jpg");
+		background-image: url("../../../public/assets/bg/Road+to+Market+3.jpg");
 	}
 	100% {
 		opacity: 1;
-		background-image: url("../../assets/bg/Road+to+Market+3.jpg");
+		background-image: url("../../../public/assets/bg/Road+to+Market+3.jpg");
 	}
 } 
 .root {
