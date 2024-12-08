@@ -13,14 +13,19 @@ export class IdentiteComponent {
   utilisateur: UtilisateurModel;
   incorrect: Boolean = false;
   isconnecting: Boolean = false;
+
   constructor(
     private router: Router,
     protected utilisateurService: UtilisateurService
   ) {
     const utilisateurJson = localStorage.getItem('utilisateur');
-    if (utilisateurJson)
-      this.utilisateur = JSON.parse(utilisateurJson) || new UtilisateurModel();
-    else this.utilisateur = new UtilisateurModel();
+    // if (utilisateurJson)
+    //   this.utilisateur = JSON.parse(utilisateurJson) || new UtilisateurModel();
+    // else this.utilisateur = new UtilisateurModel();
+
+    this.utilisateur = utilisateurJson
+      ? JSON.parse(utilisateurJson)
+      : new UtilisateurModel();
   }
 
   gotoHome = (res: any) => {
