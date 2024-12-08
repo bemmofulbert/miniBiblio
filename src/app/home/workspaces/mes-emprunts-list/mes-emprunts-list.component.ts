@@ -1,15 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
-import { UtilisateurService } from '../../../services/Utilisateur.service'
-import { LivreModel } from '../../../services/models/livre.model'
-import { LivreService } from '../../../services/Livre.service'
-import { EmpruntModel } from '../../../services/models/emprunt.model'
-import { EmpruntService } from '../../../services/Emprunt.service'
+import { Component, ViewChild, signal } from '@angular/core';
+import { UtilisateurService } from '../../../services/Utilisateur.service';
+import { LivreModel } from '../../../services/models/livre.model';
+import { LivreService } from '../../../services/Livre.service';
+import { EmpruntModel } from '../../../services/models/emprunt.model';
+import { EmpruntService } from '../../../services/Emprunt.service';
 
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 
-/* 
-* Ce composant affiche la liste des livres empruntes par l'utilisateur.
-*/
+/*
+ * Ce composant affiche la liste des livres empruntes par l'utilisateur.
+ */
 
 @Component({
   selector: 'app-mes-emprunts-list',
@@ -22,7 +22,7 @@ export class MesEmpruntsListComponent {
   dtTrigger: Subject<any> = new Subject<any>();
 
   emprunt: EmpruntModel | undefined;
-  livres: any[] | undefined = [];
+  livres = signal<any[] | undefined>([]);
   tableReady = false;
   message = 'Chargement...';
 
@@ -30,7 +30,7 @@ export class MesEmpruntsListComponent {
     this.livreService.getEmprunts(
       UtilisateurService.UtilisateurActuel,
       (dat) => {
-        this.livres = dat;
+        this.livres.set(dat);
 
         this.tableReady = true;
         try {

@@ -1,13 +1,13 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { UtilisateurService } from '../../../services/Utilisateur.service'
-import { LivreModel } from '../../../services/models/livre.model'
-import { LivreService } from '../../../services/Livre.service'
+import { Component, Output, EventEmitter, signal } from '@angular/core';
+import { UtilisateurService } from '../../../services/Utilisateur.service';
+import { LivreModel } from '../../../services/models/livre.model';
+import { LivreService } from '../../../services/Livre.service';
 
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 
-/* 
-* Ce composant affiche la liste des livres appartenant a l'utilisateur.
-*/
+/*
+ * Ce composant affiche la liste des livres appartenant a l'utilisateur.
+ */
 
 @Component({
   selector: 'app-mes-livres-list',
@@ -19,7 +19,7 @@ export class MesLivresListComponent {
   @Output() modifClick: EventEmitter<any> = new EventEmitter();
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
-  livres: any[] | undefined = [];
+  livres = signal<any[] | undefined>([]);
   tableReady = false;
   message = 'Chargement...';
 
@@ -27,7 +27,7 @@ export class MesLivresListComponent {
     this.livreService.getMesLivres(
       UtilisateurService.UtilisateurActuel,
       (dat) => {
-        this.livres = dat;
+        this.livres.set(dat);
 
         this.tableReady = true;
         try {
